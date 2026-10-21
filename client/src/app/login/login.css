@@ -1,0 +1,178 @@
+.login-page {
+  display: grid;
+  min-height: 100vh;
+  grid-template-columns: 45% 55%;
+  background: #fff;
+}
+
+.login-card {
+  width: min(370px, 80%);
+  margin: auto;
+  padding: 30px 0;
+}
+
+.brand-mark {
+  width: 44px;
+  height: 44px;
+  margin-bottom: 43px;
+  font-size: 21px;
+}
+
+.login-card h1 {
+  margin: 0;
+  color: #263b40;
+  font-size: 32px;
+  font-weight: 800;
+  letter-spacing: -1.3px;
+}
+
+.login-card .muted {
+  margin: 9px 0 29px;
+}
+
+.login-card form {
+  display: grid;
+  gap: 17px;
+}
+
+.login-card label {
+  display: grid;
+  gap: 8px;
+  color: #647378;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.login-card input {
+  height: 43px;
+  padding: 0 12px;
+  border: 1px solid #e3e9ea;
+  border-radius: 7px;
+  outline-color: #a6cdd0;
+  font-size: 12px;
+}
+
+.login-card .primary-button {
+  height: 43px;
+  margin-top: 3px;
+  font-size: 12px;
+}
+
+.login-card .primary-button span {
+  float: right;
+}
+
+.demo-hint {
+  margin-top: 21px;
+  padding: 12px 14px;
+  border-radius: 8px;
+  background: #f6f9f8;
+  color: #849195;
+  font-size: 10px;
+  line-height: 1.7;
+}
+
+.demo-hint strong {
+  color: #586a6e;
+}
+
+.demo-hint span {
+  padding: 0 5px;
+  color: #c1c9c9;
+}
+
+.login-art {
+  position: relative;
+  display: grid;
+  overflow: hidden;
+  place-items: center;
+  background: radial-gradient(ellipse at 47% 48%, #edf7f4 0, #e0f0ee 33%, #d3e9e8 72%, #c3dfdf 100%);
+}
+
+.art-orbit {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  border: 1px solid #ffffff75;
+  border-radius: 50%;
+}
+
+.orbit-two {
+  width: 680px;
+  height: 680px;
+}
+
+.art-note {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 21px 24px;
+  transform: rotate(-4deg);
+  border-radius: 13px;
+  background: #ffffffd9;
+  box-shadow: 0 16px 55px #33686615;
+}
+
+.art-note > span {
+  display: grid;
+  width: 38px;
+  height: 38px;
+  place-items: center;
+  border-radius: 12px;
+  background: #fff0df;
+  color: #db9654;
+  font-size: 19px;
+}
+
+.art-note strong,
+.art-note small {
+  display: block;
+}
+
+.art-note strong {
+  color: #365156;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.art-note small {
+  margin-top: 5px;
+  color: #8d9d9f;
+  font-size: 10px;
+}
+
+.art-caption {
+  position: absolute;
+  bottom: 35px;
+  color: #72918f;
+  font-size: 10px;
+  letter-spacing: 0.4px;
+}
+
+.login-art::after {
+  position: absolute;
+  top: 23%;
+  right: 23%;
+  color: #fff9;
+  content: '✦';
+  font-size: 29px;
+}
+
+@media (max-width: 650px) {
+  .login-page {
+    grid-template-columns: 1fr;
+  }
+
+  .login-art {
+    display: none;
+  }
+
+  .login-card {
+    width: min(370px, 86%);
+  }
+
+  .brand-mark {
+    margin-bottom: 35px;
+  }
+}

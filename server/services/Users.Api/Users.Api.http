@@ -1,0 +1,26 @@
+@baseUrl = http://localhost:5103
+@token = paste-jwt-token-here
+
+### Health
+GET {{baseUrl}}/health
+
+### Login (copy token into @token)
+POST {{baseUrl}}/api/auth/login
+Content-Type: application/json
+
+{ "username": "admin", "password": "ChangeMe123!" }
+
+### List users
+GET {{baseUrl}}/api/users
+Authorization: Bearer {{token}}
+
+### Audit events
+GET {{baseUrl}}/api/audit
+Authorization: Bearer {{token}}
+
+### Update permissions (replace id)
+PUT {{baseUrl}}/api/users/00000000-0000-0000-0000-000000000001/permissions
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{ "permissions": ["tasks.read", "tasks.write", "skins.read", "skins.write"] }

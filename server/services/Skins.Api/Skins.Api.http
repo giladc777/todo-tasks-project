@@ -1,0 +1,24 @@
+@baseUrl = http://localhost:5102
+@token = paste-jwt-token-here
+
+### Health
+GET {{baseUrl}}/health
+
+### List skins
+GET {{baseUrl}}/api/skins
+Authorization: Bearer {{token}}
+
+### Active skin
+GET {{baseUrl}}/api/skins/active
+Authorization: Bearer {{token}}
+
+### Create skin
+POST {{baseUrl}}/api/skins
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{ "name": "Lavender", "primaryColor": "#65558f", "accentColor": "#e89cae", "backgroundColor": "#f8f4fb", "fontFamily": "Georgia" }
+
+### Activate skin (replace id)
+PUT {{baseUrl}}/api/skins/00000000-0000-0000-0000-000000000001/activate
+Authorization: Bearer {{token}}

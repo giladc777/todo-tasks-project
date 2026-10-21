@@ -1,0 +1,171 @@
+/* -------------------------------------------------------------------------- */
+/* Theme tokens and document defaults                                         */
+/* -------------------------------------------------------------------------- */
+:root {
+  --primary: #176b87;
+  --accent: #f4a261;
+  --canvas: #f2f7f8;
+  --app-font: 'Segoe UI', Arial, sans-serif;
+  --ink: #21343b;
+  --muted: #87959a;
+  --line: #e8edef;
+  --white: #fff;
+
+  color: var(--ink);
+  font-family: var(--app-font);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--canvas);
+  font-family: var(--app-font);
+  font-size: 14px;
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+.logo-icon,
+.brand-mark {
+  display: grid;
+  width: 37px;
+  height: 37px;
+  place-items: center;
+  border-radius: 12px;
+  background: #e4f2f4;
+  color: var(--primary);
+  font-size: 18px;
+}
+
+.page-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+.eyebrow {
+  margin: 0 0 13px;
+  color: #9aa7aa;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+}
+
+.page-heading h1 {
+  margin: 0;
+  color: #23383d;
+  font-size: 34px;
+  font-weight: 800;
+  letter-spacing: -1.6px;
+}
+
+.muted {
+  margin: 8px 0 0;
+  color: #8a989c;
+  font-size: 13px;
+}
+
+.subtle {
+  color: #a0abad;
+  font-size: 10px;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Shared panels, buttons and status                                          */
+/* -------------------------------------------------------------------------- */
+.task-panel {
+  border: 1px solid #e9eff0;
+  border-radius: 13px;
+  background: #fff;
+  box-shadow: 0 7px 24px #243b4506;
+}
+
+.panel-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 19px;
+}
+
+.panel-title > div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.panel-title h2 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: -0.3px;
+}
+
+.count-badge {
+  display: grid;
+  min-width: 21px;
+  height: 21px;
+  place-items: center;
+  padding: 0 6px;
+  border-radius: 20px;
+  background: #edf6f7;
+  color: var(--primary);
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.primary-button,
+.add-task button {
+  border: 0;
+  border-radius: 7px;
+  background: var(--primary);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.primary-button {
+  padding: 10px 14px;
+}
+
+.primary-button span {
+  margin-left: 10px;
+}
+
+.primary-button:disabled,
+.add-task button:disabled {
+  cursor: default;
+  opacity: 0.55;
+}
+
+.error {
+  color: #ba4c42;
+  font-size: 11px;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Responsive layouts                                                         */
+/* -------------------------------------------------------------------------- */
+@media (max-width: 650px) {
+  .page-heading h1 {
+    font-size: 28px;
+  }
+
+  .date-pill {
+    padding: 8px;
+    font-size: 9px;
+  }
+}

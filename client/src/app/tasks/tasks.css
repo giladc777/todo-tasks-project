@@ -1,0 +1,289 @@
+/* Task summary card */
+.task-summary {
+  position: relative;
+  display: flex;
+  height: 96px;
+  align-items: center;
+  overflow: hidden;
+  margin-bottom: 21px;
+  padding: 0 25px;
+  border-radius: 13px;
+  background: var(--primary);
+  color: #fff;
+}
+
+.task-summary > div:first-child {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+}
+
+.summary-icon {
+  display: grid;
+  width: 38px;
+  height: 38px;
+  place-items: center;
+  border-radius: 12px;
+  background: #ffffff23;
+  font-size: 20px;
+}
+
+.task-summary strong,
+.task-summary small {
+  display: block;
+}
+
+.task-summary strong {
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.task-summary small {
+  margin-top: 2px;
+  color: #ffffffb8;
+  font-size: 10px;
+}
+
+.summary-progress {
+  width: 172px;
+  margin-left: auto;
+}
+
+.summary-progress > span {
+  color: #ffffffcf;
+  font-size: 10px;
+}
+
+.progress-track {
+  height: 4px;
+  margin-top: 9px;
+  border-radius: 4px;
+  background: #ffffff45;
+}
+
+.progress-track i {
+  display: block;
+  height: 100%;
+  border-radius: 4px;
+  background: #ffc28f;
+  transition: width 0.25s;
+}
+
+.summary-sparkle {
+  margin-left: 24px;
+  font-size: 67px;
+  line-height: 1;
+  opacity: 0.12;
+}
+
+/* Task list panel and task creation */
+.task-panel {
+  padding: 23px 24px 0;
+}
+
+.add-task {
+  display: flex;
+  height: 48px;
+  align-items: center;
+  gap: 10px;
+  padding: 5px 6px 5px 13px;
+  border: 1px solid #e4ebec;
+  border-radius: 8px;
+  background: #fbfcfc;
+}
+
+.add-plus {
+  color: var(--primary);
+  font-size: 19px;
+}
+
+.add-task input {
+  min-width: 0;
+  flex: 1;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: var(--ink);
+  font-size: 12px;
+}
+
+.add-task input::placeholder {
+  color: #a7b1b3;
+}
+
+.add-task button {
+  padding: 10px 14px;
+}
+
+.add-task button span {
+  margin-left: 10px;
+}
+
+.task-list {
+  min-height: 150px;
+}
+
+/* Individual task rows */
+.task-row {
+  display: flex;
+  min-height: 65px;
+  align-items: center;
+  gap: 13px;
+  border-bottom: 1px solid #eef1f1;
+}
+
+.check-button {
+  width: 19px;
+  height: 19px;
+  flex: 0 0 19px;
+  padding: 0;
+  border: 1.5px solid #d9e1e2;
+  border-radius: 50%;
+  background: #fff;
+  color: #fff;
+  font-size: 11px;
+}
+
+.check-button.checked {
+  border-color: var(--primary);
+  background: var(--primary);
+}
+
+.task-copy {
+  min-width: 0;
+  flex: 1;
+}
+
+.task-copy strong,
+.task-copy small {
+  display: block;
+}
+
+.task-copy strong {
+  color: #415258;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.task-copy small {
+  margin-top: 4px;
+  color: #a0aaac;
+  font-size: 10px;
+}
+
+.task-copy.done strong {
+  color: #9eaaac;
+  text-decoration: line-through;
+}
+
+.task-date {
+  color: #9eaaac;
+  font-size: 10px;
+}
+
+.delete-button {
+  border: 0;
+  background: transparent;
+  color: #b7c0c2;
+  font-size: 18px;
+  opacity: 0;
+}
+
+.task-row:hover .delete-button {
+  opacity: 1;
+}
+
+.delete-button:hover {
+  color: #d46759;
+}
+
+/* Empty state and list filters */
+.empty-state {
+  display: flex;
+  height: 160px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 6px;
+  color: #8d9a9e;
+}
+
+.empty-state > span {
+  color: var(--accent);
+  font-size: 20px;
+}
+
+.empty-state strong {
+  color: #5a6a6e;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.empty-state small {
+  font-size: 11px;
+}
+
+.list-footer {
+  display: flex;
+  height: 54px;
+  align-items: center;
+  justify-content: space-between;
+  color: #a1abad;
+  font-size: 10px;
+}
+
+.filters {
+  display: flex;
+  gap: 5px;
+}
+
+.filters button {
+  padding: 7px 9px;
+  border: 0;
+  border-radius: 6px;
+  background: none;
+  color: #919da0;
+  font-size: 10px;
+}
+
+.filters button.active {
+  background: #edf6f7;
+  color: var(--primary);
+  font-weight: 700;
+}
+
+/* Small-screen adjustments */
+@media (max-width: 650px) {
+  .task-summary {
+    height: 82px;
+    padding: 0 15px;
+  }
+
+  .summary-progress {
+    width: 120px;
+  }
+
+  .summary-sparkle {
+    display: none;
+  }
+
+  .task-panel {
+    padding: 18px 14px 0;
+  }
+
+  .task-date {
+    display: none;
+  }
+
+  .delete-button {
+    opacity: 1;
+  }
+
+  .list-footer {
+    font-size: 9px;
+  }
+
+  .filters button {
+    padding: 7px 6px;
+  }
+}

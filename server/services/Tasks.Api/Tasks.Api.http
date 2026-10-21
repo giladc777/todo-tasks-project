@@ -1,0 +1,30 @@
+@baseUrl = http://localhost:5101
+@token = paste-jwt-token-here
+
+### Health
+GET {{baseUrl}}/health
+
+### Swagger JSON
+GET {{baseUrl}}/swagger/v1/swagger.json
+
+### List tasks
+GET {{baseUrl}}/api/tasks
+Authorization: Bearer {{token}}
+
+### Create task
+POST {{baseUrl}}/api/tasks
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{ "title": "Review RabbitMQ event flow", "description": "Created task should appear in Users audit" }
+
+### Update task (replace id)
+PUT {{baseUrl}}/api/tasks/00000000-0000-0000-0000-000000000001
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{ "title": "Review RabbitMQ event flow", "description": "Done", "isCompleted": true }
+
+### Delete task (replace id)
+DELETE {{baseUrl}}/api/tasks/00000000-0000-0000-0000-000000000001
+Authorization: Bearer {{token}}

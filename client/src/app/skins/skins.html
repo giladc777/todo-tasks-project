@@ -1,0 +1,105 @@
+<section class="page-heading">
+  <div>
+    <p class="eyebrow">YOUR SPACE / APPEARANCE</p>
+    <h1>Set your tone.</h1>
+    <p class="muted">Make your workspace feel a little more like you.</p>
+  </div>
+  <span class="settings-glyph">◉</span>
+</section>
+
+<section class="skin-layout">
+  <div class="skin-list-panel">
+    <div class="panel-title">
+      <div>
+        <h2>Your skins</h2>
+        <span class="count-badge">{{ skins.length }}</span>
+      </div>
+      <button class="new-skin-button" (click)="newSkin()">＋ New skin</button>
+    </div>
+    <p class="subtle skin-subtitle">Choose a feeling</p>
+
+    <article
+      class="skin-choice"
+      *ngFor="let skin of skins"
+      [class.selected]="skin.id === selected.id"
+      (click)="activate(skin)">
+      <div class="swatches">
+        <i [style.background]="skin.primaryColor"></i>
+        <i [style.background]="skin.accentColor"></i>
+        <i [style.background]="skin.backgroundColor"></i>
+      </div>
+      <div class="skin-choice-copy">
+        <strong>{{ skin.name }}</strong>
+        <small>{{ skin.fontFamily }} · custom palette</small>
+      </div>
+      <span class="active-check" *ngIf="skin.isActive">✓</span>
+      <span class="radio" *ngIf="!skin.isActive"></span>
+    </article>
+
+    <p class="error" *ngIf="error">{{ error }}</p>
+  </div>
+
+  <div class="editor-panel">
+    <div class="panel-title">
+      <div>
+        <h2>Fine-tune</h2>
+        <span class="subtle">A few little details</span>
+      </div>
+      <span class="edit-glyph">✎</span>
+    </div>
+
+    <form *ngIf="selected" (ngSubmit)="save()">
+      <label>
+        Skin name
+        <input name="name" [(ngModel)]="selected.name" required>
+      </label>
+      <div class="color-field">
+        <label>Primary color</label>
+        <div>
+          <input type="color" name="primary" [(ngModel)]="selected.primaryColor">
+          <span>{{ selected.primaryColor }}</span>
+        </div>
+      </div>
+      <div class="color-field">
+        <label>Accent color</label>
+        <div>
+          <input type="color" name="accent" [(ngModel)]="selected.accentColor">
+          <span>{{ selected.accentColor }}</span>
+        </div>
+      </div>
+      <div class="color-field">
+        <label>Canvas color</label>
+        <div>
+          <input type="color" name="background" [(ngModel)]="selected.backgroundColor">
+          <span>{{ selected.backgroundColor }}</span>
+        </div>
+      </div>
+      <label>
+        Typeface
+        <select name="font" [(ngModel)]="selected.fontFamily">
+          <option>Inter</option>
+          <option>Georgia</option>
+          <option>Arial</option>
+          <option>Trebuchet MS</option>
+        </select>
+      </label>
+      <button class="primary-button" type="submit">Save changes <span>→</span></button>
+    </form>
+
+    <div class="preview-card" *ngIf="selected" [style.background]="selected.backgroundColor">
+      <div class="preview-top">
+        <span [style.color]="selected.primaryColor">✦ &nbsp; little by little</span>
+        <span class="preview-dots">•••</span>
+      </div>
+      <h3 [style.color]="selected.primaryColor" [style.font-family]="selected.fontFamily">A fresh perspective.</h3>
+      <p [style.font-family]="selected.fontFamily">Your space, your pace. Make today count.</p>
+      <div class="preview-task">
+        <span [style.background]="selected.accentColor">✓</span>
+        <strong>Take a moment for yourself</strong>
+      </div>
+      <div class="preview-bar">
+        <i [style.background]="selected.primaryColor"></i>
+      </div>
+    </div>
+  </div>
+</section>

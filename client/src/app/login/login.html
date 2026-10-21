@@ -1,0 +1,53 @@
+<main class="login-page">
+  <section class="login-card">
+    <div class="brand-mark">✓</div>
+    <p class="eyebrow">YOUR WORK, IN FLOW</p>
+    <h1>Welcome back.</h1>
+    <p class="muted">Sign in to pick up where you left off.</p>
+
+    <form (ngSubmit)="submit()">
+      <label>
+        Username
+        <input
+          name="username"
+          [(ngModel)]="username"
+          autocomplete="username"
+          required>
+      </label>
+      <label>
+        Password
+        <input
+          name="password"
+          type="password"
+          [(ngModel)]="password"
+          autocomplete="current-password"
+          required>
+      </label>
+
+      <p class="error" *ngIf="error">{{ error }}</p>
+
+      <button class="primary-button" [disabled]="loading">
+        {{ loading ? 'Signing in…' : 'Sign in' }}
+        <span>→</span>
+      </button>
+    </form>
+
+    <div class="demo-hint">
+      <strong>Demo access</strong><br>
+      admin <span>·</span> ChangeMe123!
+    </div>
+  </section>
+
+  <div class="login-art">
+    <div class="art-orbit orbit-one"></div>
+    <div class="art-orbit orbit-two"></div>
+    <div class="art-note">
+      <span>✦</span>
+      <div>
+        <strong>Make room for what matters.</strong>
+        <small>A little progress goes a long way.</small>
+      </div>
+    </div>
+    <span class="art-caption">A calmer way to get things done.</span>
+  </div>
+</main>

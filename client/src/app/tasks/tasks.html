@@ -1,0 +1,83 @@
+<!doctype html>
+<section class="page-heading">
+  <div>
+    <p class="eyebrow">YOUR SPACE / TASKS</p>
+    <h1>Make it happen.</h1>
+    <p class="muted">Small steps add up to big things.</p>
+  </div>
+  <div class="date-pill">✦ &nbsp; {{ today }}</div>
+</section>
+
+<section class="task-summary">
+  <div>
+    <span class="summary-icon">◷</span>
+    <div>
+      <strong>{{ remaining }}</strong>
+      <small>things in progress</small>
+    </div>
+  </div>
+  <div class="summary-progress">
+    <span>{{ completed }} of {{ tasks.length }} done</span>
+    <div class="progress-track">
+      <i [style.width.%]="progress"></i>
+    </div>
+  </div>
+  <span class="summary-sparkle">✦</span>
+</section>
+
+<section class="task-panel">
+  <div class="panel-title">
+    <div>
+      <h2>Today’s list</h2>
+      <span class="count-badge">{{ remaining }}</span>
+    </div>
+    <span class="subtle">{{ tasks.length }} tasks total</span>
+  </div>
+
+  <form class="add-task" (ngSubmit)="addTask()">
+    <span class="add-plus">＋</span>
+    <input
+      name="newTitle"
+      [(ngModel)]="newTitle"
+      placeholder="Add a task to your list…"
+      required>
+    <button type="submit" [disabled]="!newTitle.trim()">
+      Add task <span>→</span>
+    </button>
+  </form>
+
+  <p class="error" *ngIf="error">{{ error }}</p>
+
+  <div class="task-list">
+    <article class="task-row" *ngFor="let task of filteredTasks">
+      <button
+        class="check-button"
+        [class.checked]="task.isCompleted"
+        (click)="toggle(task)"
+        [attr.aria-label]="task.isCompleted ? 'Mark incomplete' : 'Complete task'">
+        {{ task.isCompleted ? '✓' : '' }}
+      </button>
+      <div class="task-copy" [class.done]="task.isCompleted">
+        <strong>{{ task.title }}</strong>
+        <small *ngIf="task.description">{{ task.description }}</small>
+      </div>
+      <span class="task-date">{{ task.createdAt | date: 'MMM d' }}</span>
+      <button class="delete-button" (click)="remove(task)" aria-label="Delete task">×</button>
+    </article>
+
+    <div class="empty-state" *ngIf="!filteredTasks.length">
+      <span>✦</span>
+      <strong>All caught up.</strong>
+      <small>Add a task to get started.</small>
+    </div>
+  </div>
+
+  <footer class="list-footer">
+    <div class="filters">
+      <button [class.active]="filter === 'all'" (click)="filter = 'all'">All</button>
+      <button [class.active]="filter === 'open'" (click)="filter = 'open'">In progress</button>
+      <button [class.active]="filter === 'done'" (click)="filter = 'done'">Completed</button>
+    </div>
+    <span>Showing {{ filteredTasks.length }} tasks</span>
+  </footer>
+</section>
